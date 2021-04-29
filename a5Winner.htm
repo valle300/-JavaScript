@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="hwassign.css">
+<style>
+body {font-family: arial; color: black; font-style: normal}
+	.errorText {font-family: arial; color: red; font-style: italic}
+
+    </style>
+
+
+
+
+<script src="https://apis.google.com/js/client.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>	
+
+<script>
+window.addEventListener("load", loadEventListeners);
+    
+    function loadEventListeners() {
+    document.getElementById("btnClaim").addEventListener("click", claimForm);
+        
+    document.getElementById("btnDecline").addEventListener("click", declineForm);
+        
+    
+        
+        
+    }
+    
+    function claimForm() {
+        document.getElementById("claim").innerHTML = "Please call us at 1-800-Mouses-r-us<br> We can deliver "+ doorSelection + " the "+ theEmail + " in as little as " + numbersf + " days.";
+    }
+    function declineForm() {
+        
+        window.history.go(-1);
+         
+    }//end of declingForm function
+     
+   
+//!!!!! for CHROM, cookies won't work locally. If you want to test in Chrome, put your files on a web server.
+//for local testing, use a different browser!!!!****
+	
+	var cookieSplitter = decodeURI(document.cookie);
+	//reads the data back in and places it in the variable
+	
+	var myCookiePieces = cookieSplitter.split("x*x");
+	//alert(myCookiePieces[2])
+	
+	var nameonly = myCookiePieces[0];
+	var myFile = myCookiePieces[1];
+	var numberonly = myCookiePieces[2];
+	var theEmail = myCookiePieces[3];
+	var doorSelection = myCookiePieces[4];
+	var myIcecream = myCookiePieces[5];
+	var numbersf = myCookiePieces[6];
+	
+	
+    window.addEventListener("load", showCookieData);
+	
+	
+	 
+    if(numberonly==8 || numberonly==11 || numberonly==18){
+        
+        var ending = " an ";
+    }  
+    
+   else {
+           
+           var ending = " a ";
+           }//end of else  
+   
+	function showCookieData() {
+		/*document.getElementById("div1").innerHTML = nameonly;
+		document.getElementById("div2").innerHTML = myFile;
+		document.getElementById("div3").innerHTML = numberonly;
+		document.getElementById("div4").innerHTML = theEmail;
+		document.getElementById("div5").innerHTML = doorSelection;
+		document.getElementById("div6").innerHTML = myIcecream;
+		document.getElementById("div7").innerHTML = numbersf;
+		
+		for(var i=0; i < myCookiePieces.length; i++) {
+			var pTag = document.createElement("p");
+			//creates an opening and closing paragraph tag each time it loops
+			pTag.appendChild(document.createTextNode(myCookiePieces[i]));
+			
+			document.body.appendChild(pTag);
+     
+	}//end for loop*/
+    
+            
+	}//end of showCookieData function
+</script>
+
+
+</head>
+<body>
+
+
+<div id="wrapper">
+<div class="border">
+<div class="leftcolumn">
+  <a href="a1.htm">Assignemnt #1</a><br><br>
+	<a href="a2.htm">Assignemnt #2</a><br><br>
+	<a href="a3.htm">Assignemnt #3</a><br><br>
+	<a href="a4.htm" >Assignemnt #4</a><br><br>
+        <a href="a5.htm" style="color: #000000; text-decoration: underline overline; font-style: italic;">Assignemnt #5</a>
+    </div>
+    
+    <div id="rightsidewon">
+    
+<h1><span id="youwon" style="font-weight: bold">YOU WON!!!</h1><br><br>
+    
+    <script>
+        document.write("<div><img src='images/"+ theEmail +".jpg'></div><br>")
+		document.write("Congratulations " + nameonly + "!!!<br><br>" + "You have won " + ending + numberonly + " year old " + myFile + " " + theEmail + " named " + doorSelection + "!!!") + "<br><br>";
+	</script></span><br><br>
+    
+    
+	<div style="font-weight: bold;"></div><br/>
+	
+	<!--<div id="div1"></div><br>
+	<div id="div2"></div><br>
+	<div id="div3"></div><br>
+	<div id="div4"></div><br>
+	<div id="div5"></div><br>
+	<div id="div6"></div><br>
+	<div id="div7"></div><br>-->
+   		
+       
+          <form>
+    <input type="button" value="To claim your prize, click here!" id="btnClaim">
+    <input type="button" value="Decline" id="btnDecline">
+    </form>
+        <br><div id="claim"></div>
+   </div>
+</div>
+
+    </div>
+    
+    
+    
+   
+    
+    
+    
+
+
+<footer>
+  
+</footer>
+
+</body>
+    
+</html>	

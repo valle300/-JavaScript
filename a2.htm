@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<link rel="stylesheet" href="hwassign.css">
+
+<!--The following script tag downloads a font from the Adobe Edge Web Fonts server for use within the web page. We recommend that you do not modify it.-->
+<script>var __adobewebfontsappname__="dreamweaver"</script>
+<script src="http://use.edgefonts.net/aclonica:n4:default;satisfy:n4:default.js" type="text/javascript"></script>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>	
+
+</head>
+<body id="myBG">
+
+
+<div id="wrapper">
+<div class="border">
+<div class="leftcolumn">
+  <a href="a1.htm">Assignemnt #1</a><br><br>
+	<a href="a2.htm" style="color: #000000; text-decoration: underline overline; font-style: italic;">Assignemnt #2</a><br><br>
+	<a href="a3.htm">Assignemnt #3</a><br><br>
+	<a href="a4.htm">Assignemnt #4</a><br><br>
+        <a href="a5.htm">Assignemnt #5</a>
+    </div>
+    
+<div id="rightcolumn">
+    
+<article class="borderem">
+<h2>Working with form elemnts using addEventListener</h2>
+<section class="jsleftform">
+    <form class="jsleftform">
+			<input type="radio" name="rb" id="red" value=""> Red 
+			<input type="radio" name="rb" id="yellow" value=""> Yellow    
+			<input type="radio" name="rb" id="blue" value=""> Blue   <br><br>
+        
+        
+			Input a color name or a hexadecimal value<br>
+			<input type="text" id="colorTB"><br><br>
+			
+            <input type="button" name="b" id="plum" class="btn" value="Plum">
+			<input type="button" name="b" id="olive" class="btn" value="Olive" >
+			<input type="button" name="b" id="magenta" class="btn" value="Magenta"><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    </form>
+        </section>
+<section class="jsrightform"><br>
+            <form class="jsrightform">
+            <select size="1">
+				<option>---Choose---</option>
+				<option id="purple" value="purple" name="cm">Purple</option>
+				<option id="green" value="green" name="cm">Green</option>
+				<option id="orange" value="orange" name="cm">Orange</option>
+			</select><br><br>
+            
+			<input type="checkbox" name="cb" id="pink" value=""> Pink
+			<input type="checkbox" name="cb" id="gold" value=""> Gold
+			<input type="checkbox" name="cb" id="white" value=""> White <br><br>
+            
+        	   <p  id="grey" name="lk">Grey Background</p>
+	   <p  id="cyan" name="lk">Cyan Background</p>
+	   <p  id="lime" name="lk">Lime Green Background</p><br><br>
+        </form> </section>
+    
+    </article>
+ <br>
+    <div class="bordermiddle"></div>
+   
+<article class="borderem2">
+<h2>Working with form elemnts using jQuery</h2><br><br><br>
+<section class="jqleftcolumn">
+    <form id="jqForm" class="jqleftform" >
+			<input type="radio" class="rbjq" name="rbjq" id="aquamarine" value="aquamarine"> Aquamarine 
+			<input type="radio" class="rbjq" name="rbjq" id="brown" value="brown"> Brown    
+			<input type="radio" class="rbjq" name="rbjq" id="yellowgreen" value="yellowgreen"> Yellow Green <br><br>
+        
+        
+			Input a color name or a hexadecimal value<br>
+			<input type="text" class="colorTB" ><br><br>
+			
+            <input type="button" class="btn" value="Bisque">
+			<input type="button" class="btn" value="Crimson" id="#D10035">
+			<input type="button" class="btn" value="Medium Purple" id="mediumpurple"><br><br>
+
+</form>
+
+        </section> 
+    <br><br><br><br><br><br><br>
+        <section class="jqrightcolumn">
+            <form id="jqForm2" class="jqrightform">                  
+			
+			<select name="colorMenu" size="1">
+				<option>---Choose---</option>
+				<option>Salmon</option>
+				<option>Plum</option>
+				<option>Peru</option>
+			</select><br><br>
+			
+            
+			<input type="checkbox" class="cb"  value="hotpink"> Hot Pink
+			<input type="checkbox" class="cb"  value="coral"> Coral
+			<input type="checkbox" class="cb"  value="darkcyan"> Dark Cyan <br><br>
+          
+                <p href="#" class="hk" value="paleturquoise" id="#afeeee" >Pale Turquoise</p>
+                <p href="#" class="hk" value="seagreen" id="#2e8b57" >Sea Green</p>
+                <p href="#" class="hk" value="sandybrown" id="#F4A460" >Sandy Brown</p><br>
+        </form> </section>
+    
+    </article>
+    </div>
+    </div>
+    </div>
+    
+<br><br><br><br><br><br><br><br><br><br>
+<script>
+    window.addEventListener("load", loadEvents);
+
+function loadEvents() {
+	document.getElementById("colorTB").addEventListener("change", changeBG);
+	
+	//document.getElementById("pink").addEventListener("click", changeBG);
+	
+	//document.getElementById("gold").addEventListener("click", changeBG);
+	
+	//document.getElementById("white").addEventListener("click", changeBG);
+	
+	var rbItems = document.getElementsByName("rb");
+    
+	var bItems = document.getElementsByName("b");
+    
+	var cmItems = document.getElementsByName("cm");
+        
+    var cbItems = document.getElementsByName("cb");
+    
+    var lkItems = document.getElementsByName("lk");
+    
+	
+	/*
+	So what happens is that the three checkboxes gets stored in an array in the cbItems variable.
+	
+	cbItems[0] = The pink checkmark box
+	cbItems[1] = The #FFCC00 checkmark box
+	cbItems[2] = The white checkmark box
+	*/
+	
+	//for(initialValueOfVariable; howManyTimesToLoop; iterator/incrementor)
+	for(var i=0; i < rbItems.length; i++) {
+		document.getElementById(rbItems[i].id).addEventListener("click", changeBG)
+		//alert(i);
+	
+	}//end of for loop
+    
+    for(var i=0; i < bItems.length; i++) {
+		document.getElementById(bItems[i].id).addEventListener("click", changeBG)
+		//alert(i);
+	
+	}//end of for loop
+    
+    for(var i=0; i < cmItems.length; i++) {
+		document.getElementById(cmItems[i].id).addEventListener("click", changeBG)
+		//alert(i);
+	
+	}//end of for loop
+    
+    
+    
+    for(var i=0; i < cbItems.length; i++) {
+		document.getElementById(cbItems[i].id).addEventListener("click", changeBG)
+		//alert(i);
+	
+	}//end of for loop
+    
+    for(var i=0; i < lkItems.length; i++) {
+		document.getElementById(lkItems[i].id).addEventListener("click", changeBG)
+		//alert(i);
+	
+	}//end of for loop
+	
+}//end loadEvents function
+
+function changeBG() {
+	
+	
+	//alert("changeBG is running");
+	var colorValue = this.value || this.id;//the this keyword refers to the html object that made his function run.
+	//alert(colorValue);
+	
+	document.getElementById("myBG").style.backgroundColor = colorValue;
+}//end changeBG function 
+
+
+
+jQuery(
+	function() {
+		//alert("it's working!!!");
+		
+        $("#jqForm .rbjq[type='radio']").change(
+			function(){
+				
+				//alert("change event function is running")
+				//css("property", value)
+				$("body").css("backgroundColor", this.id || this.value)	
+			}//end of change event function
+		);//end of change event
+        $("#jqForm .colorTB").change(
+			function(){
+				
+				//alert("change event function is running")
+				//css("property", value)
+				$("body").css("backgroundColor", this.value);
+			}//end of change event function
+		);//end of change event
+		$("#jqForm .btn").click(
+			function(){
+				
+				//alert("buttons clicks are working");
+		$("body").css("backgroundColor", this.id || this.value)	
+			
+			}//end of click event functin
+		);//end of click event
+	
+   
+   
+		//alert("it's working!!!");
+		$("#jqForm2 .cb").change(
+			function(){
+				
+				//alert("change event function is running")
+				//css("property", value)
+				$("body").css("backgroundColor", this.id || this.value);	
+			}//end of change event function
+		);//end of change event
+        $("#jqForm2 select").change(
+			function(){
+				
+				//alert("change event function is running")
+				//css("property", value)
+				$("body").css("backgroundColor", this.id || this.value);	
+			}//end of change event function
+		);//end of change event
+		
+          $("#jqForm2 .hk").click(
+			function(){
+				
+				//alert("change event function is running")
+				//css("property", value)
+				$("body").css("backgroundColor", this.id || this.value);	
+			}//end of change event function
+		);//end of change event
+        $(
+		function(){
+			//alert("jquery is working");
+			//the $ sign turn an html object into a jquery object so that jquery events and methods can be used on it.
+			$(".leftcolumn a").mouseover(
+				function(){
+					//.css(cssProperty", "value")
+					//$("a").css("background-color", "blue");
+					//$(this).css("background-color", "blue");// the this keyword references the html object that made this functin run
+					$(this).addClass("links");
+				}//end of mousever function
+			);//end of mousever event
+			
+			$(".leftcolumn a").mouseout(
+				function(){
+					$(this).removeClass("links");//returns back to the a:link style
+				}//end of mouseout function
+			);//end of mouseout event	
+		}//end function container a
+	);//end master mouse in/out
+	}//end of master function
+);//end of master jQuery container</script>
+<footer>
+  <p>Erick Valle cis154 assignment #2</p>
+</footer>
+
+</body>
+    
+</html>	

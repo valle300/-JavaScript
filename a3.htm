@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="hwassign.css">
+
+<!--The following script tag downloads a font from the Adobe Edge Web Fonts server for use within the web page. We recommend that you do not modify it.-->
+<script>var __adobewebfontsappname__="dreamweaver"</script>
+<script src="http://use.edgefonts.net/aclonica:n4:default;satisfy:n4:default.js" type="text/javascript"></script>
+    <script src="https://static.sekandocdn.net/static/feednami/feednami-client-v1.1.js"></script>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>	
+    <script>
+	
+jQuery( 
+	function() {
+	
+var url	="https://rss.nytimes.com/services/xml/rss/nyt/RealEstate.xml";
+
+	feednami.load(url,	
+	
+		function(result) {
+		//place a variable in the function parentheses to get the result of the url load. That way you can create a back-up of what will happen if the nytimes rss website is down.
+		
+		if(result.error) {
+			//place code here for what will show on your page if the nytimes rss feed can't load
+			
+			//console.log(result.error); for you, the developer
+		}
+		
+		else {
+            $("#myBtn").click(
+				function(){
+		
+			//a successful result produces a response which contains information about the feed and an entries array - the entries array that is provided by the response corresponds to the item tags in the rss feed.
+			
+			var data = result.feed.entries;//place the entries array into a variable.
+            var dataT = Math.floor(Math.random() * data.length);
+            var eTitle = data[dataT].title;
+            var eLink = data[dataT].link;
+            var eDescription = data[dataT].description;
+            
+			
+//for(var i = 0; i < data.length; i++) {
+	//var eTitle = data[i].title;
+	//var eLink = data[i].link;
+	//var eImg = data[i].enclosures[0].url;//the media tag for images is accessed via the enclosures property attached to the url property.
+				
+		//$("#ulData").append("<span style='font-weight: bold; color: red; font-size: 18px; font-family: arial; text-decoration: underline'>Story #"+ (i+1) +"</span>");
+		
+		
+                    
+                    
+        $("#newstitle").html("<h5 style='font-family: arial; line-height: 24px'>" + eTitle + "</h5>");
+                    
+        $("#newsdescription").html("<h5 style='font-family: arial; line-height: 24px'>" + eDescription + "</h5>");
+                    
+        $("#info").html("Click the image for the full article");
+		
+		//$("#ulData").html("<p>"+ eLink + "</p><br>");
+		
+		//$("#ulData").html("<a href=" + eLink +" target='_blank'> Click Here for More Details</a><br><br>")
+		//$("#ulData").html("<img src=" + eImg +" target='_blank'> <br><br>")
+		
+		if(data[dataT].enclosures[0]==undefined) { //checking to see if the media tag for the image exists
+		$("#newsimage").html("<a href=" + eLink +" target='_blank'><img src='image.jpg'></a>");
+			//if it returns true (meaning, the image does not exist) then put code here which will instead display a default image
+		}
+		else {
+            var eImg = data[dataT].enclosures[0].url;
+			$("#newsimage").html("<a href=" + eLink +" target='_blank'><img src=" + eImg +"></a>");
+		}//end else
+	//}//end for loop
+                    }//end of click event function
+			);//end of click event 	
+}//end else
+		
+	
+		}
+		
+	);//end of feednami load event	
+	$(
+		function(){
+			//alert("jquery is working");
+			//the $ sign turn an html object into a jquery object so that jquery events and methods can be used on it.
+			$(".leftcolumn a").mouseover(
+				function(){
+					//.css(cssProperty", "value")
+					//$("a").css("background-color", "blue");
+					//$(this).css("background-color", "blue");// the this keyword references the html object that made this functin run
+					$(this).addClass("links");
+				}//end of mousever function
+			);//end of mousever event
+			
+			$(".leftcolumn a").mouseout(
+				function(){
+					$(this).removeClass("links");//returns back to the a:link style
+				}//end of mouseout function
+			);//end of mouseout event	
+		}//end function container
+	);//end master mouse in/out	
+});//end of master function and master jQuery container
+
+</script>
+</head>
+<body>
+
+
+<div id="wrapper">
+<div class="border">
+<div class="leftcolumn">
+  <a href="a1.htm">Assignemnt #1</a><br><br>
+	<a href="a2.htm">Assignemnt #2</a><br><br>
+	<a href="a3.htm" style="color: #000000; text-decoration: underline overline; font-style: italic;">Assignemnt #3</a><br><br>
+	<a href="a4.htm">Assignemnt #4</a><br><br>
+        <a href="a5.htm">Assignemnt #5</a>
+    </div>
+    
+<div id="rssbackground">
+ <div id="newsbackground">   
+
+<div id="realestateheading"><h1>Real Estate News</h1>
+</div>
+     <div id="newsimage"><img src="image.jpg" alt="noimage"></div>
+
+     <form >
+    		<input type="button" id="myBtn" class="Btn" value="Click Here for Random News Story">
+      	</form>
+     <div id="rightbackground">
+     <div id="newstitle"></div>
+ <div id="divider"></div>
+<div id="newsdescription">Want to see a random Real Estate news story? Click the button!</div>
+     <div id="info"></div>
+     </div>
+    	
+    </div>
+    </div>
+    
+    
+    
+    
+    </div>
+    </div>
+    
+    
+<br><br><br><br><br><br><br><br><br><br>
+
+<footer>
+  
+</footer>
+
+</body>
+    
+</html>	

@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="hwassign.css">
+<style>
+.ui-datepicker {
+  width: 216px;
+  height: auto;
+  margin: 5px auto 0;
+  font: 9pt Arial, sans-serif;
+  background-color: white;
+}
+
+
+.ui-datepicker a {
+  text-decoration: none;
+  
+}
+
+
+.ui-datepicker table {
+  width: 100%;
+  border-collapse:collapse;
+}
+
+.ui-datepicker-header {
+  color: white;
+  font-weight: bold;
+  line-height: 30px;
+  border-width: 1px 0 0 0;
+  border-style: solid;
+  border-color: #111;
+  background-color: black;
+}
+
+.ui-datepicker-title {
+  text-align: center;
+
+}
+
+
+.ui-datepicker-prev, .ui-datepicker-next {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  cursor: pointer;
+  overflow: hidden;
+  color: white;
+}
+
+.ui-datepicker-prev {
+  float: left;
+  margin-left: 5px;
+
+}
+.ui-datepicker-next {
+  float: right;
+  margin-right: 5px;
+
+}
+
+.ui-datepicker thead {
+	background-color: #f7f7f7;
+	border-bottom: 1px solid #bbb;
+	border-right: 1px solid #bbb;
+	border-left: 1px solid #bbb;
+}
+
+
+.ui-datepicker th {
+  text-transform: uppercase;
+  font-size: 6pt;
+  padding: 5px 0;
+  color: #666666;
+}
+
+.ui-datepicker tbody td {
+  padding: 7px;
+  border: 1px solid #bbb;
+
+}
+
+
+ui-datepicker tbody tr {
+  border-bottom: 1px solid #bbb;
+}
+.ui-datepicker tbody tr:last-child {
+  border-bottom: 0px;
+}
+
+
+
+    </style>
+
+
+
+
+<script src="https://apis.google.com/js/client.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>	
+
+<script type="text/javascript" src="http://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script><!-- Needed so that the date picker will work-->
+    <script type="text/javascript">
+jQuery(
+		function() {
+
+            
+$("#DP").datepicker(
+			{
+				dayNamesMin:["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+				dateFormat: "MM d, yy", //this is how the date will be formatted in the text box after you choose a date in teh calendar
+				showOtherMonths: true
+			}//end datepicker properties
+		);//end of datepicker method
+		
+		
+
+            
+var now = new Date();//gets the full date
+
+var thisYr = now.getFullYear();
+	
+var nextYr = thisYr + 1
+
+$("#duedate").find("ul li").css("width", $("#duedate").width());//makes the li or list the same width as the dive container 
+
+
+            
+var month = new Array("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December");                
+   
+   
+            
+//$("#duedate").find("ul").css("width", $("#duedate").width());
+//var xmas = new Date(2020, 11, 25, 24);               
+
+	
+//var dueNows = new fullDate(dueNow);      
+
+function daysTil(theDate) {
+		//alert(theDate)
+		return Math.floor((theDate - now)/86400000);
+	}//end daysTil() function
+
+            
+ /*$("input.addatask").click(
+        function() {
+            
+            var inputtext = $(this).val();
+            //var something = $(this).val();
+                            
+            alert(inputtext);
+    });*/
+       
+$("#addBtn").click(
+    
+        function() {
+               
+
+                
+				var dateTxt = $("#DP").val();
+				//$("#duedate").append("Due date: " + dateTxt);
+				//$("#duedate").append("<br><br>");
+				
+				
+                var fullDate = $("#DP").datepicker("getDate");//get the FULL date from the calendar
+                //$("#duedate").append("# of days until deadline: " + fullDate);
+				//$("#duedate").append("<br><br>");
+
+				
+//formatDate("the piece of the date you want", the variable holding the full unabbreviated date)
+                
+        var dayData = $.datepicker.formatDate("dd", fullDate);
+        //$("#duedate").append("The day is " + dayData);
+        
+
+        var monthData = $.datepicker.formatDate("mm", fullDate);
+        var monthData = monthData - 1
+       // $("#duedate").append("The month is " + monthData);
+        
+
+        var yearData = $.datepicker.formatDate("yy", fullDate);
+        //$("#duedate").append("The month is " + yearData);
+        
+                
+        var dayOfWeek = $.datepicker.formatDate("DD", fullDate);
+        //$("#duedate").append("Today is " + dayOfWeek);
+        
+        
+        var dueDate = new Date(yearData, monthData, dayData, 24);
+      
+        
+               
+            
+            var inputtext = $(".addatask").val();
+           
+                            
+            
+    
+    
+        //$("#duedate").append("The day is " + xmas);
+        if(daysTil(dueDate)==1) {
+           
+            var ending=" day";
+           
+           }//end of if
+           
+        else {
+           
+           var ending=" days"
+           }//end of else
+            
+            
+            
+        $("#duedate").find("ul").append("<li data-date='" + dueDate +"'>" + inputtext + "<br>Due date: " + dateTxt + "<br><span id='spanlistdescription'>#of days until Due Date: " + daysTil(dueDate) + ending +"</span><input type='radio' name='remove' class='radioRemove'></li>");
+            //alert("The month is" + now.getMonth())
+        $("#duedate").find("ul li").css("width", $("#duedate").width());//makes the li or list the same width as the dive container 
+        
+        $("#update").html(function(i, val) {return val*1+1 });
+        
+        
+            
+            
+            
+        
+        
+                
+        $("#mytodolistForm")[0].reset(); 
+        $("li").sort(function(a,b){
+    return new Date($(a).attr("data-date")) - +new Date($(b).attr("data-date"))
+}).each(function(){
+    $("ul").append(this);
+});    
+
+
+			}//end of click fuction
+		    
+		);//end of button click event
+$("#clear").click(
+   
+        function() {
+     $("#duedate").find("ul").text("");
+     $("#update").html("0");
+    
+
+            }//end of click fuction
+		    
+		);//end of button click event
+$(
+		function(){
+			//alert("jquery is working");
+			//the $ sign turn an html object into a jquery object so that jquery events and methods can be used on it.
+			$(".leftcolumn a").mouseover(
+				function(){
+					//.css(cssProperty", "value")
+					//$("a").css("background-color", "blue");
+					//$(this).css("background-color", "blue");// the this keyword references the html object that made this functin run
+					$(this).addClass("links");
+				}//end of mousever function
+			);//end of mousever event
+			
+			$(".leftcolumn a").mouseout(
+				function(){
+					$(this).removeClass("links");//returns back to the a:link style
+				}//end of mouseout function
+			);//end of mouseout event	
+		}//end function container a
+	);//end master mouse in/out a
+            
+  $(document).on('change', 'input[name=remove]',
+			function(){
+				
+				//alert("change event function is running")
+				//css("property", value)
+				$(this).parent().remove();	
+      $("#update").html(function(i, val) {return val*1-1 });
+			}//end of change event function
+		);//end of change event           
+            
+            
+            
+            
+		}//end of master function
+	);//end of jQuery master container
+
+</script>
+</head>
+<body>
+
+
+<div id="wrapper">
+<div class="border">
+<div class="leftcolumn">
+  <a href="a1.htm">Assignemnt #1</a><br><br>
+	<a href="a2.htm">Assignemnt #2</a><br><br>
+	<a href="a3.htm">Assignemnt #3</a><br><br>
+	<a href="a4.htm" style="color: #000000; text-decoration: underline overline; font-style: italic;">Assignemnt #4</a><br><br>
+        <a href="a5.htm">Assignemnt #5</a>
+    </div>
+    
+    
+    <div id="quote"></div>
+<div id="duedate">
+    <div id="spanlist">TO DO LIST<span id="update"> 0</span></div>
+    <ul>
+     
+<!--<li data-date="Fri, 26 Aug 2011 20:58:39 GMT">item 1 <br>"Due Date: April 25, 2020"<br> <span id="spanlistdescription">#of days until DUe Date: 5 days</span><input type="radio" name="remove" class="radioRemove"></li>
+<li data-date="Fri, 24 Aug 2011 20:58:39 GMT">item 2<input type="radio" name="remove" class="radioRemove"></li>
+<li data-date="Fri, 25 Aug 2011 20:58:39 GMT">item 3<input type="radio" name="remove" class="radioRemove"></li>-->
+        
+</ul>
+    
+   		
+       <div id="inputs">
+           <form id="mytodolistForm">
+            <p><input type="text" placeholder="Add a Task" class="addatask" name="task"  id="task" /></p>
+            <p><input type="text" placeholder="Due Date" name="date" id="DP"/></p>
+            <div style="margin-left: 102px"><input type="button" value="Add" id="addBtn"><input type="button" value="Clear"  id="clear" ></div>
+        
+   </form> </div></div>
+
+
+    </div>
+    
+    
+    
+    </div>
+    
+    
+    
+
+
+<footer>
+  
+</footer>
+
+</body>
+    
+</html>	

@@ -1,0 +1,398 @@
+.border {
+    width: 900px;
+    height: 688px;
+    border: 4px solid black;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 0px;
+}
+body {
+    font-size: 14px;
+    font-weight: bold;
+}
+h2  {
+    font-weight: 700;
+    text-align: center;
+}
+
+
+
+
+
+.textaligncenter {
+    text-align: center;
+}
+.center {
+    display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+.bold {
+    font-size: 1.4em;
+    font-weight: bold;
+    text-align: center;
+}
+.leftcolumn {
+    width: 149px;
+    margin-right: 0px;
+    margin-left: 0px;
+    padding-left: 85px;
+    text-align: left;
+    padding-top: 89px;
+    border-style: none;
+    height: 602px;
+    padding-right: 0px;
+    line-height: 30px;
+    float: left;
+}
+#rightcolumn {
+    padding-left: px;
+    border: 2px solid #000;
+    border-style: none;
+    width: 648px;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 700px;
+    height: 688px;
+    min-width: 357px;
+    clear: none;
+    float: right;
+}
+.jsleftform {
+    float: left;
+    height: 240px;
+    display: block;
+    width: 329px;
+}
+.jsrightform {
+    float: right;
+    height: 225px;
+    display: block;
+    width: 258px;
+}
+.jsrightform p {
+     cursor: pointer;
+}
+.borderem  {
+    border: .05em solid black;
+    height: 300px;
+    width: 635px;
+    margin-right: 0px;
+    /* [disabled]max-width: 648px; */
+    margin-top: 22px;
+    margin-left: -8px;
+}
+section {
+    display: block;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+form a {
+    all: unset;
+    cursor: pointer;
+}
+.leftcolumn a {
+    color: #C20609;
+    line-height: 0px;
+    font-weight: bold;
+    font-family: Cambria, "Hoefler Text", "Liberation Serif", Times, "Times New Roman", serif;
+    font-style: normal;
+}
+.borderem2 {
+    border: .05em solid black;
+    height: 300px;
+    width: 635px;
+    margin-right: 20px;
+    margin-top: 25px;
+    float: right;
+}
+#jqForm2 {
+    float: left;
+    padding-right: 0px;
+    padding-top: 0px;
+    padding-left: 0px;
+    margin-top: -160px;
+    width: 284px;
+}
+#jqForm {
+    float: left;
+    padding-right: 0px;
+    padding-left: 0px;
+    padding-bottom: 0px;
+    padding-top: 0px;
+}
+.header {
+    padding-right: 0px;
+    padding-left: 1px;
+    
+}
+#wrapper {
+    min-width: 900px;
+    max-width: 1280px;
+    width: 80%;
+    margin-right: auto;
+    margin-left: auto;
+}
+jqleftform {
+    float: left;
+    width: 115px;
+    height: 367px;
+}
+jqrightform {
+    float: right;
+    width: 143px;
+    height: 239px;
+}
+.bordermiddle {
+    height: 2px;
+    background-color: #000000;
+    margin-right: 27px;
+    
+}
+#jqForm2 p {
+    cursor: pointer;
+}
+#rssbackground {
+    background-color: #000000;
+    width: 619px;
+    height: 500px;
+    padding-left: 0px;
+    margin-right: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 20px;
+    float: right;
+}
+#newsbackground {
+    width: 499px;
+    height: 394px;
+    background-color: #B9CDB9;
+    margin-top: 56px;
+    margin-right: 56px;
+    margin-bottom: 56px;
+    margin-left: 56px;
+    float: right;
+}
+#realestateheading {
+    text-decoration: underline;
+    float: left;
+    width: 211px;
+    height: 79px;
+    margin-top: 26px;
+    margin-bottom: 26px;
+    margin-left: 19px;
+}
+#newsimage {
+    width: 157px;
+    height: 161px;
+    background-color: #FFFFFF;
+    margin-top: 119px;
+    border: 1px solid #000;
+    margin-left: 52px;
+    text-align: center;
+    font-size: 26px;
+}
+#myBtn {
+    padding-top: 0px;
+    padding-right: 0px;
+    padding-left: 0px;
+    padding-bottom: 0px;
+    margin-top: 18px;
+    font-size: 14px;
+    margin-left: 18px;
+    float: left;
+}
+#rightbackground {
+    width: 205px;
+    height: 339px;
+    float: right;
+    margin-top: -290px;
+    margin-right: 32px;
+    margin-bottom: 32px;
+    margin-left: 32px;
+    background: linear-gradient( 360deg, rgb(220,220,220) 6%, rgb(128,128,128) 85%);
+    border: 1px solid #000000;
+}
+#newstitle {
+    margin-left: 21px;
+    margin-right: 21px;
+    margin-top: 15px;
+    font-weight: 900;
+    text-align: center;
+}
+#newsdescription {
+    margin-left: 18px;
+    margin-right: 13px;
+    margin-top: 16px;
+    font-family: Gotham, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    text-align: left;
+}
+#info {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    font-size: 18px;
+    text-align: center;
+}
+
+
+
+#divider {
+    background-color: black;
+    width: 165px;
+    height: 2px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 12px;
+}
+
+#newsimage img {
+    margin-left: -1px;
+    margin-right: 0px;
+    margin-top: -12px;
+    margin-bottom: 0px;
+    width: 162px;
+    height: 163px;
+    background-color: #fff;
+}
+
+
+a:link {
+    text-decoration: none;
+}
+
+#newsimage p {
+    cursor: pointer;
+    all: unset;
+}
+#duedate {
+    background-color: #BCAFAF;
+    width: 486px;
+    height: auto;
+    margin-top: 34px;
+    margin-right: 34px;
+    text-align: center;
+    float: right;
+}
+#duedate ul li {
+    background-color: blue;
+    border: .08px solid black;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    font-family: Gotham, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    height: 80px;
+    list-style-type: none;
+    float: right;
+    padding-top: 10px;
+}
+#inputs {
+    width: auto;
+    margin-right: auto;
+    margin-left: auto;
+    display: inline-block;
+    height: auto;
+}
+
+#myForm {
+    width: 436px;
+    height: 195px;
+    float: right;
+    margin-top: 37px;
+    margin-right: 149px;
+    text-align: center;
+}
+#mytodolistForm {
+    float: right;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;    
+}
+.links { background-color: yellow; color: black; border-color: black; font-weight: bold;}    
+#spanlist {
+    padding-top: 29px;
+    padding-right: 29px;
+    padding-bottom: 29px;
+    padding-left: 29px;
+    font-size: 26px;
+    font-family: "Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Condensed", Helvetica, Arial, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    color: #FFFFFF;
+}
+#spanlistdescription {
+    font-size: 12px;
+    font-family: Cambria, "Hoefler Text", "Liberation Serif", Times, "Times New Roman", serif;
+    /* [disabled]position: absolute; */
+    text-align: center;
+}
+#update {
+    border-radius: 50%;
+    background: #fff;
+    text-align: center;
+    border: 2px solid #666;
+    font-size: 10px;
+    padding-top: 8px;
+    padding-right: 8px;
+    padding-bottom: 8px;
+    padding-left: 8px;
+    width: 36px;
+    height: 36px;
+    color: #000000;
+}
+#radioRemove {
+    padding-top: 0px;
+    width: auto;
+    background-color: black;
+    float: right;
+    margin-top: 26px;
+    position: absolute;
+    margin-left: 167px;
+}
+.radioRemove {
+    float: right;
+    margin-right: 28px;
+    margin-top: -14px;
+}
+#form5div {
+    float: right;
+    text-align: center;
+    margin-top: 39px;
+    margin-right: 188px;
+    margin-bottom: 39px;
+    margin-left: 39px;
+}
+#wrapper .border #imgwon {
+}
+#imgwon {
+    text-align: center;
+
+}
+#rightsidewon {
+    text-align: center;
+}
+#youwon {
+    font-size: 55px;
+}
+form.myForm5 {
+    float: right;
+    text-align: center;
+}
+form {
+    text-align: center;
+}
+.myForm5 {
+    margin-top: 114px;
+    margin-right: 114px;
+    margin-bottom: 114px;
+    margin-left: 114px;
+    background-color: black;
+}
+form[name="myForm5"] {
+    text-align: center;
+    margin-top: 68px;
+}

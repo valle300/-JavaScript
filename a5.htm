@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="hwassign.css">
+<style>
+body {font-family: arial; color: black; font-style: normal}
+	.errorText {font-family: arial; color: red; font-style: italic}
+
+    </style>
+
+
+
+
+<script src="https://apis.google.com/js/client.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>	
+
+<script type="text/javascript" src="http://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script><!-- Needed so that the date picker will work-->
+    
+    <script>
+        
+        
+        
+
+        
+        
+
+
+    window.addEventListener("load", loadEventListeners);
+
+	
+	
+	
+	function loadEventListeners() {
+			document.getElementById("btnCheck").addEventListener("click", checkForm);
+			
+        document.getElementById("aName").addEventListener("change", removeErrorText);
+        
+        document.getElementById("aNumber").addEventListener("change", removeErrorText);
+        
+        document.getElementById("verb").addEventListener("change", removeErrorText);
+        
+        document.getElementById("r1").addEventListener("change", removeErrorTextt);
+        document.getElementById("r2").addEventListener("change", removeErrorTextt);
+        document.getElementById("r3").addEventListener("change", removeErrorTextt);
+        document.getElementById("r4").addEventListener("change", removeErrorTextt);
+        document.getElementById("r5").addEventListener("change", removeErrorTextt);
+        
+			document.getElementById("aB").addEventListener("change", removeErrorText);
+        
+        
+        
+        document.getElementById("door").addEventListener("change", removeErrorText);
+        
+        document.getElementById("icecream").addEventListener("change", removeErrorText);
+        
+        var rsItems = document.getElementsByName("rs");
+        
+        for(var i=0; i < rsItems.length; i++) {
+		document.getElementById(rsItems[i].id).addEventListener("click", changeBG)
+		//alert(i);
+	
+	}//end of for loop
+        
+
+	}//end of loadEventListeners function
+        
+    function changeBG() {
+        
+        
+        var colorValue = this.value;
+        
+        theEmail = colorValue;
+    }
+	
+    function removeErrorText() {
+                document.getElementById(this.id + "Error").innerHTML = "";
+
+
+            }//end removeErrorText()
+    function removeErrorTextt() {
+                document.getElementById("rsError").innerHTML = "";
+
+
+            }//end removeErrorText()
+    
+        
+	//global because we'll be using these variable in two different functions.
+	var someName;
+	var myFile;
+	var myPhone;
+	var theEmail;
+	var doorSelection;
+	var myIcecream;
+	var nameonly;
+    var numberonly;
+    var verbing;
+    var numbersf;
+    
+	var mistakes;
+	
+	function checkForm() {
+        
+		mistakes = false;
+		
+		
+				
+        
+            
+				
+				
+            //***NAME ONLY***
+            
+            nameonly = document.myForm5.aName.value;
+            var nol = /^[a-z]+$/i;
+            
+            if(nol.test(nameonly)) {
+                //if this tests good, do nothing
+                
+				//aName is the id of the text box
+				//aNameError is the id of the span next to the text box
+                
+            }
+            
+            else {
+                document.getElementById("aNameError").innerHTML = "You need to enter your first name";
+                mistakes = true;
+            }
+        
+        
+        
+            //***NUMBER ONLY***
+            numberonly = document.myForm5.aNumber.value;
+            var nuo = /^[0-9]+$/;
+        
+            if(nuo.test(numberonly)) {
+                //if this tests good, do nothing
+                
+            }
+            
+            else {
+                document.getElementById("aNumberError").innerHTML = "You need to enter a numeric value";
+                mistakes = true;
+            }
+        
+        
+            //***VERB ENDING IN ING***
+            
+            /*verbing = document.myForm5.verb.value;
+            var ving = /(^[a-zA-Z])+(\ing);
+            
+            if(ving.test(verbing)){
+                //this will run IF IT'S TRUE that any character outside of the specified set is found
+                
+            }
+        
+            else {
+                document.getElementById("verbError").innerHTML = "You need to enter a verb ending in ing";
+                mistakes = true;
+            }*/
+		   //***FILE NAME WITH A GIF OR JPG EXTENSION***
+		   myFile = document.myForm5.verb.value;
+		   
+		   //the carrot top inside the brackets [] is looking for character that ARE NOT in the specified character set... a-z, 0-9, _, -
+		   //the letter i says to ignore case. That way the file name can be upper or lower
+		   //the pip | symbol is for or 
+		   //var fnf = /[^a-z|0-9|_|\-|.jpg$]/i; 
+		   
+		   // \w checks for letters, numbers, and underscores
+		   // [\w|-]* says a dash or additional letter numbers and underscores are allow but the * says there doesn't have to be any dashes or additional characters
+		   //the $ at the end says nothing else allowed after the .jpg, .gif, or .png extension
+		   //i says ignore case
+		   //in between teh two sets of parentheses there is a concactenation sign. DO NOT put spaces before or after taht because the expression won't work
+		   var fnf = /(^[a-zA-Z]*)+(ing)$/i;
+		   
+		   if(fnf.test(myFile)) {
+		   //this will run IF IT'S TRUE that any character outside of the specified set is found
+		   //alert("YAY! Good File!");
+		   
+		   
+		   }//end of if
+		   else {
+		   
+				document.getElementById("verbError").innerHTML="You need to enter a verb ending in ing";
+				
+				mistakes = true;
+				//alert("bad file!!!");
+		   }
+		   
+        
+        //***RADIO BUTTONS***
+        
+        
+         
+       
+        if(document.querySelector('input[name="rs"]:checked')) {
+         
+         
+       
+		
+		
+            //alert(theEmail);
+		
+		//Regular array constructor )also known as a constructor class)
+		//Other constructors are Date, Math, String, Array, Image, and Object
+		
+        
+        
+		
+           
+           
+            //alert("alert");
+        }
+        else {
+				//do nothing
+				document.getElementById("rsError").innerHTML = "You must pick a door";
+            mistakes = true;
+            //alert("Please choose a door");
+			}
+        
+        
+            //***NUMBER BETWEEN 7-14***
+            
+        
+        numbersf = document.myForm5.aB.value;
+        
+        var nf = /^([7-9]|[0-1][1-4])$/;
+        
+        if(nf.test(numbersf)) {
+            //if it tests good, do nothing
+            
+            }//end if if
+            
+		else {
+            //alert("bad entry");
+            document.getElementById("aBError").innerHTML = "You need to enter a number between 7 and 14";
+            mistakes = true;
+        
+            
+        }
+        
+        
+        
+        
+        
+        //***LETTER STARTING WITH B***
+        
+			doorSelection = document.myForm5.door.value;
+			
+			var doorOK = /^[B][a-z]+$/i;
+			//first character must be a number, then an uppercase A or B or C or D, then a special character, then nothing else after that
+			
+			if(doorOK.test(doorSelection)) {
+				//if this tests good, do nothing
+				
+			}
+			
+			else {
+				//alert("Please enter 1A or 1B, or 1C or 1D plus ")
+                document.getElementById("doorError").innerHTML = "You need to enter a name starting with the letter B";
+				mistakes = true;
+			}
+			
+		//***BEN & JERRY'S SELECTION MENU***
+			if(document.myForm5.icecream.selectedIndex==0){
+			//alert("please select ice cream from the menu")
+				mistakes = true;
+                document.getElementById("icecreamError").innerHTML = "You need to make a selection";
+			}
+			
+			else {
+				//do nothing
+				myIcecream = document.myForm5.icecream.value;
+			}
+			
+		if(mistakes==false) {
+			makeCookies();
+		}
+		
+		
+		}//end of checkForm()
+		
+	
+		function makeCookies() {
+			//alert("YAY!!! No mistakes!!")
+			var cookiePieces = nameonly + "x*x" + myFile + "x*x" + numberonly + "x*x" + theEmail + "x*x" + doorSelection + "x*x" + myIcecream + "x*x" + numbersf;
+			
+			document.cookie = encodeURI(cookiePieces);
+			
+			//encodeURI so that certain special characters, such as spaces, can be  represented. A space in the dta (ie: John Smith) will be encoded as %20
+			//GMT = Greenwich Mean Time which is 8 hours ahead of Pacific Time
+			
+			document.location = "a5Winner.htm";//open this file in a browser
+		}
+		
+		/*Advantages and Disadvantages of Cookies
+		
+			ADVANTAGES
+			1. Cookies do not require any server resources since cookies are stored on the client
+			
+			2. Cookies are easy to implement
+			
+			3.You can configure cookies to expire when the browser session ends (session cookie) or the cookie can exist for a specified period of time on the user's computer (persisten cookie).
+			
+			DISADVANTAGES
+			1. Users can delete cookies
+			
+			2. Users can set up browser preferences to block cookies.
+			
+			3. Cookies exist as exist as plain text on the client's computer and this may pose a security risk as anyone can open and tamper with cookies.	
+		*/
+		
+		/*
+			OTHER NOTES ABOUT Cookies
+			
+			1. There will only be ONE .txt file created per domain.
+			
+			2. Some browsers will limit the number of cookies from a domain to 20. Some browsers will accepted more.
+			
+			3. Each time you use document.cookies in your code, that counts as one cookie
+			
+			4. You can stuff multiple values inside one document.cookie and that will still count as one cookie, BUT keep in mind that the cookie data is limited to 4kb and that includes the expiration date. Cookies in excess of 4kb will be trimmed.
+			
+			5. If more than the MAX number of cookies are written from one domain, the oldest one will be replaced.
+			
+			6. A given browser will store a maximum of 300 .txt files from all domains (some will store more). If the user has reached their max, then older cookies will be auto deleted.
+			
+			7. Cookie data can only be read by the domain that saved the cookie data.
+			
+			The above are the http standards. Browsers can choose to have stricter rules or more loose rules.
+		*/
+		
+	jQuery(
+		function() {
+	
+	
+	$(
+		function(){
+			//alert("jquery is working");
+			//the $ sign turn an html object into a jquery object so that jquery events and methods can be used on it.
+			$(".leftcolumn a").mouseover(
+				function(){
+					//.css(cssProperty", "value")
+					//$("a").css("background-color", "blue");
+					//$(this).css("background-color", "blue");// the this keyword references the html object that made this functin run
+					$(this).addClass("links");
+				}//end of mousever function
+			);//end of mousever event
+			
+			$(".leftcolumn a").mouseout(
+				function(){
+					$(this).removeClass("links");//returns back to the a:link style
+				}//end of mouseout function
+			);//end of mouseout event	
+		}//end function container a
+	);//end master mouse in/out a
+            
+  $(document).on('change', 'input[name=remove]',
+			function(){
+				
+				//alert("change event function is running")
+				//css("property", value)
+				$(this).parent().remove();	
+      $("#update").html(function(i, val) {return val*1-1 });
+			}//end of change event function
+		);//end of change event           
+            
+            
+            
+            
+		}//end of master function
+	);//end of jQuery master container
+
+
+</script>
+</head>
+<body>
+
+
+<div id="wrapper">
+<div class="border">
+<div class="leftcolumn">
+  <a href="a1.htm">Assignemnt #1</a><br><br>
+	<a href="a2.htm">Assignemnt #2</a><br><br>
+	<a href="a3.htm">Assignemnt #3</a><br><br>
+	<a href="a4.htm">Assignemnt #4</a><br><br>
+        <a href="a5.htm" style="color: #000000; text-decoration: underline overline; font-style: italic;">Assignemnt #5</a>
+    </div>
+    
+    
+    
+
+    
+   		
+       
+           <form id="myForm5" name="myForm5">
+		Please enter your first name:
+        <span id="aNameError" class="errorText"></span><br>
+		<input type="text" id="aName">
+		
+		<br><br>
+		
+        Enter a number:
+        <span id="aNumberError" class="errorText"></span><br>
+		<input type="text" id="aNumber">
+		<br><br>
+               
+               
+		Enter a verb ending in "ing":
+        <span id="verbError" class="errorText"></span><br>
+		<input type="text" id="verb">
+		
+		<br><br><br>
+		
+        Choose One:
+		
+		<span id="rsError" class="errorText"></span><br>
+        <input type="radio" name="rs" id="r1" value="Dog"> Choose what's behind door # 1<br>
+        <input type="radio" name="rs" id="r2" value="Bunny"> Choose what's behind door # 2<br>
+        <input type="radio" name="rs" id="r3" value="Cat"> Choose what's behind door # 3<br>
+        <input type="radio" name="rs" id="r4" value="Rat"> Choose what's behind door # 4<br>
+        <input type="radio" name="rs" id="r5" value="Gerbil"> Choose what's behind door # 5<br>
+        <br><br><br>
+		
+        
+        Enter a number between 7-14:
+        <span id="aBError" class="errorText"></span><br>
+		<input type="text" id="aB">
+		<br><br><br>
+               
+        Enter a name starting with the letter B:
+        <span id="doorError" class="errorText"></span><br>
+        <input type="text" id="door" size="5">
+        <br><br>       
+		    
+		
+		Selectn an appropriate option based on the answer above:
+        <span id="icecreamError" class="errorText"></span><br>
+		<select id="icecream">
+			<option value="select">Select from the Menu</option>
+			<option value="Male">Male</option>
+			<option value="Female">Female</option>
+			</select><br><br>
+		
+               
+               
+		<input type="button" value="Submit" id="btnCheck">
+	</form>
+     </div>   
+   </div>
+
+
+    
+    
+    
+    
+   
+    
+    
+    
+
+
+<footer>
+  
+</footer>
+
+</body>
+    
+</html>	
